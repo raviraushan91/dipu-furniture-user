@@ -1,0 +1,337 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 35% 97%;
+    --foreground: 216 34% 14%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 216 34% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 34% 14%;
+
+    --primary: 196 86% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 204 36% 93%;
+    --secondary-foreground: 216 34% 14%;
+
+    --muted: 208 28% 90%;
+    --muted-foreground: 217 16% 40%;
+
+    --accent: 148 44% 34%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 208 28% 84%;
+    --input: 208 28% 86%;
+    --ring: 196 86% 38%;
+    --radius: 0.8rem;
+
+    --glass-bg: 0 0% 100% / 0.72;
+    --glass-border: 208 35% 75% / 0.45;
+    --glass-shadow: 217 39% 28% / 0.15;
+
+    --gradient-primary: linear-gradient(135deg, hsl(196 86% 38%), hsl(168 58% 36%));
+    --gradient-secondary: linear-gradient(160deg, hsl(210 35% 98%), hsl(205 33% 92%));
+    --gradient-glass: linear-gradient(150deg, hsla(0, 0%, 100%, 0.78), hsla(205, 30%, 92%, 0.7));
+    --gradient-hero: linear-gradient(120deg, hsla(214, 60%, 10%, 0.78), hsla(194, 56%, 22%, 0.48));
+
+    --shadow-soft: 0 16px 40px -26px hsla(217, 39%, 28%, 0.32);
+    --shadow-card: 0 12px 28px -20px hsla(217, 39%, 28%, 0.28);
+    --shadow-glow: 0 0 0 1px hsla(196, 86%, 38%, 0.24), 0 14px 28px -20px hsla(196, 86%, 38%, 0.5);
+    --control-height: 2.6rem;
+  }
+
+  .dark {
+    --background: 214 46% 8%;
+    --foreground: 210 29% 94%;
+
+    --card: 215 38% 11%;
+    --card-foreground: 210 29% 94%;
+
+    --popover: 215 38% 11%;
+    --popover-foreground: 210 29% 94%;
+
+    --primary: 190 86% 56%;
+    --primary-foreground: 214 46% 8%;
+
+    --secondary: 216 30% 16%;
+    --secondary-foreground: 210 29% 94%;
+
+    --muted: 216 24% 18%;
+    --muted-foreground: 210 15% 72%;
+
+    --accent: 154 55% 42%;
+    --accent-foreground: 214 46% 8%;
+
+    --border: 216 23% 24%;
+    --input: 216 24% 21%;
+    --ring: 190 86% 56%;
+
+    --glass-bg: 215 38% 11% / 0.78;
+    --glass-border: 216 25% 31% / 0.74;
+    --glass-shadow: 0 0% 0% / 0.5;
+
+    --gradient-primary: linear-gradient(135deg, hsl(190 86% 56%), hsl(154 55% 42%));
+    --gradient-secondary: linear-gradient(160deg, hsl(214 46% 8%), hsl(215 34% 14%));
+    --gradient-glass: linear-gradient(150deg, hsla(214, 32%, 14%, 0.92), hsla(216, 25%, 18%, 0.72));
+    --gradient-hero: linear-gradient(120deg, hsla(214, 58%, 5%, 0.8), hsla(188, 60%, 18%, 0.48));
+
+    --shadow-soft: 0 16px 40px -24px hsla(0, 0%, 0%, 0.68);
+    --shadow-card: 0 12px 30px -18px hsla(0, 0%, 0%, 0.75);
+    --shadow-glow: 0 0 0 1px hsla(190, 86%, 56%, 0.3), 0 14px 28px -20px hsla(190, 86%, 56%, 0.5);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden antialiased;
+    font-family: "Manrope", sans-serif;
+    font-size: clamp(13px, 0.8vw, 15px);
+    line-height: 1.5;
+    background-image:
+      radial-gradient(circle at 8% 8%, hsla(196, 80%, 44%, 0.12), transparent 34%),
+      radial-gradient(circle at 94% 7%, hsla(156, 54%, 38%, 0.1), transparent 34%),
+      radial-gradient(circle at 50% 98%, hsla(196, 65%, 48%, 0.09), transparent 40%),
+      linear-gradient(180deg, hsla(0, 0%, 100%, 0.08), hsla(0, 0%, 100%, 0));
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Fraunces", serif;
+    letter-spacing: 0.01em;
+    line-height: 1.14;
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 1.36rem + 0.85vw, 2.1rem);
+  }
+
+  h2 {
+    font-size: clamp(1.24rem, 1.1rem + 0.52vw, 1.66rem);
+  }
+
+  p,
+  span,
+  li,
+  input,
+  select,
+  textarea,
+  button {
+    font-size: clamp(0.83rem, 0.79rem + 0.22vw, 0.95rem);
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: var(--control-height);
+    border-radius: 0.75rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--secondary));
+    color: hsl(var(--foreground));
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 3px hsla(var(--ring), 0.16);
+    background: hsl(var(--card));
+  }
+
+  textarea {
+    min-height: 6.8rem;
+    resize: vertical;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-[1160px] px-3 sm:px-5;
+  }
+
+  .glass {
+    @apply backdrop-blur-md border;
+    background: hsla(var(--glass-bg));
+    border-color: hsla(var(--glass-border));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .glass-panel {
+    @apply glass rounded-2xl;
+    border: 1px solid hsla(var(--glass-border));
+    backdrop-filter: blur(15px);
+  }
+
+  .glass-card {
+    @apply glass rounded-xl transition-all duration-300;
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsla(var(--glass-border));
+  }
+
+  .glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 28px -20px hsla(217, 39%, 28%, 0.32);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-glass {
+    background: var(--gradient-glass);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-primary-foreground text-sm font-semibold transition-all duration-300;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow);
+    min-height: var(--control-height);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    filter: saturate(1.08);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl border text-sm font-medium transition-all duration-200;
+    border-color: hsl(var(--border));
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    min-height: var(--control-height);
+  }
+
+  .btn-ghost:hover {
+    background: hsl(var(--muted));
+  }
+
+  .section-headline {
+    @apply text-2xl md:text-3xl font-semibold leading-[1.08];
+    text-wrap: balance;
+  }
+
+  .page-title {
+    @apply text-2xl md:text-3xl font-bold text-foreground;
+  }
+
+  .main-highlight {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.14rem;
+  }
+
+  .main-highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 48%;
+    height: 2px;
+    border-radius: 999px;
+    background: var(--gradient-primary);
+    opacity: 0.95;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-sm max-w-2xl;
+  }
+
+  .grain-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.14;
+    mix-blend-mode: overlay;
+    background-image: radial-gradient(hsla(0, 0%, 100%, 0.28) 0.45px, transparent 0.45px);
+    background-size: 3px 3px;
+  }
+}
+
+@layer utilities {
+  .premium-shell {
+    @apply rounded-xl border;
+    border-color: hsla(var(--glass-border));
+    background: linear-gradient(155deg, hsla(var(--card), 0.9), hsla(var(--secondary), 0.78));
+    box-shadow: var(--shadow-card);
+  }
+
+  .text-muted-tight {
+    @apply text-sm text-muted-foreground leading-relaxed;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoomSoft {
+    from {
+      transform: scale(1.03);
+      opacity: 0.75;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out;
+  }
+
+  .animate-zoom-soft {
+    animation: zoomSoft 0.9s ease-out;
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --control-height: 2.45rem;
+    }
+
+    .glass-panel,
+    .glass-card,
+    .premium-shell {
+      border-radius: 0.9rem;
+    }
+  }
+}
